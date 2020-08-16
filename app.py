@@ -28,7 +28,7 @@ def predict():
     final_features=[np.array(int_features)]
     prediction=model.predict_proba(final_features)
     output=round(prediction[0],3)
-    return render_template('index.html',prediction_text='MPG of car is{}'.format(output))
+    return render_template('index.html',prediction_text='Probability of early readmission is: {}'.format(output))
 if __name__=='__main__':
     app.run(debug=True)
 
