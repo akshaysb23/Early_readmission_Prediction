@@ -26,14 +26,10 @@ def home():
 def predict():
     int_features=[int(x) for x in request.form.values()]
     final_features=[np.array(int_features)]
-    prediction=model.predict_proba(final_features)
-    output=round(prediction[0],3)
-    return render_template('index.html',prediction_text='Probability of early readmission is: {}'.format(output))
+    my_prediction=model.predict(final_features)
+    return render_template('result.html',prediction=my_prediction)
 if __name__=='__main__':
     app.run(debug=True)
-
-
-# In[ ]:
 
 
 
